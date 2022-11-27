@@ -262,13 +262,20 @@ public class GUIdevelopment implements ActionListener, ChangeListener{
 		}
 		
 		
-		if(ae.getSource() == loginPageButtonRedirectToPlane) {
+		if(ae.getSource() == loginButton) {
 			seatManagerPanel.setVisible(true);
 			loginPanel.setVisible(false);
 //			seatManagerPanel.setLayout(null);
 			mainFrame.add(seatManagerPanel);
 			mainFrame.remove(loginPanel);
 		}
+		if(ae.getSource() == returnHomeButton) {
+			welcomePanel.setVisible(true);
+			loginPanel.setVisible(false);
+			welcomePanel.setLayout(null);
+			mainFrame.add(welcomePanel);
+			mainFrame.remove(loginPanel);
+	}
 	}
 	
 	
@@ -408,16 +415,81 @@ public class GUIdevelopment implements ActionListener, ChangeListener{
 	
 	
 	public void loginPageSetUp() {
-		loginPanel.setBackground(Color.decode("#b992e8"));	
+		loginPanel.setBackground(Color.decode("#b992e8"));		
+		
+	loginPanel.setSize( 780, 610);
+        loginPanel.setBorder(BorderFactory.createEtchedBorder());
+        loginPanel.setBackground(new Color(0xb992e8));
+        loginPanel.setLayout(null);
+
+// Title ---> Display's "Log In "
+
+        titleLabel = new JLabel("Log In");
+        titleLabel.setFont(new Font("Monaco", Font.ROMAN_BASELINE, 25));
+        titleLabel.setBounds(350, 0, 200, 90);
+        loginPanel.add(titleLabel);
+
+// UserNameLabel --> Display's "User name "
+
+        userNameLabel = new JLabel("Username");
+        userNameLabel.setFont(new Font("Monaco", Font.ROMAN_BASELINE, 20));
+        userNameLabel.setBounds(100, 175, 150, 90);
+        loginPanel.add(userNameLabel);
+
+// Text Field
+
+         userNameTextField = new JTextField();
+        userNameTextField.setBounds(250, 200, 350, 40);
+        userNameTextField.setBackground(Color.pink);
+        userNameTextField.setBorder(BorderFactory.createBevelBorder(1));
+        loginPanel.add(userNameTextField);
+
+// passwordLabel --> Display's "Password"
+
+        passwordLabel = new JLabel("Password");
+        passwordLabel.setFont(new Font("Monaco", Font.ROMAN_BASELINE, 20));
+        passwordLabel.setBounds(100, 235, 150, 90);
+        loginPanel.add(passwordLabel);
+
+// PasswordField
+
+        passwordField = new JPasswordField();
+        passwordField.setBounds(250, 260, 350, 40);
+        passwordField.setBackground(Color.PINK);
+        passwordField.setBorder(BorderFactory.createBevelBorder(1));
+        loginPanel.add(passwordField);
+
+// Login Button
+
+        loginButton = new JButton("Log In");
+        loginButton.setBounds(320, 390, 150, 40);
+        loginButton.setFont(new Font("Monaco", Font.ROMAN_BASELINE, 20));
+        loginButton.setBackground(Color.pink);
+        loginButton.setForeground(Color.BLACK);
+        loginButton.addActionListener(this);
+        loginPanel.add(loginButton);
+
+
+// Return Home Button
+
+        returnHomeButton = new JButton("✈ CITC HOME ✈");
+        returnHomeButton.setBounds(-5, 0, 150, 30);
+        returnHomeButton.setForeground(Color.white);
+        returnHomeButton.addActionListener(this);
+        returnHomeButton.setOpaque(false);
+        returnHomeButton.setContentAreaFilled(false);
+        returnHomeButton.setBorderPainted(false);
+        loginPanel.add(returnHomeButton);
+
 		
 		
-		//login -> seat manager
-		loginPageButtonRedirectToPlane = new JButton ("Proceed to Plane");
-		loginPageButtonRedirectToPlane.setBounds(300, 390, 350, 40);
-		loginPageButtonRedirectToPlane.setBackground(Color.pink);
-		loginPageButtonRedirectToPlane.setForeground(Color.black);
-		loginPageButtonRedirectToPlane.addActionListener(this);
-		loginPanel.add(loginPageButtonRedirectToPlane);
+// 		//login -> seat manager
+// 		loginPageButtonRedirectToPlane = new JButton ("Proceed to Plane");
+// 		loginPageButtonRedirectToPlane.setBounds(300, 390, 350, 40);
+// 		loginPageButtonRedirectToPlane.setBackground(Color.pink);
+// 		loginPageButtonRedirectToPlane.setForeground(Color.black);
+// 		loginPageButtonRedirectToPlane.addActionListener(this);
+// 		loginPanel.add(loginPageButtonRedirectToPlane);
 
 	}
 	
